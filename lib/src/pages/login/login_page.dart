@@ -1,4 +1,7 @@
-
+import 'package:app_food/src/pages/login/widget/FormInicioSesion.dart';
+import 'package:app_food/src/pages/login/widget/ImageInicioSesion.dart';
+import 'package:app_food/src/pages/login/widget/backgroundInicioSesion.dart';
+import 'package:app_food/src/pages/login/widget/tituloInicioSesion.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -7,41 +10,23 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          _backgroudCover(),
-          Column(
-            children: [
-              _imageCover(),
-              _textAppName()
-            ],
-          )
-        ],
-      )
+        bottomNavigationBar: Container(
+          height: 50,
+          //child: textDontHaveAccount(),
+        ),
+        body: Stack(
+          children: [
+            backgroudInicioSesion(context),
+            boxForm(context),
+            Column(
+              children: [
+                ImagenInicioSesion(),
+                textoInicioSesion()
+              ],
+            )
+          ],
+        )
     );
   }
 
-  Widget _backgroudCover(){
-    return Container(
-      width: double.infinity,
-      height: 200,
-      color: Colors.amber,
-    );
-  }
-
-  Widget _textAppName(){
-    return Text(
-      'Delivery Food'
-    );
-  }
-
-  Widget _imageCover(){
-    return Container(
-      child: Image.asset(
-          'assets/img/delivery.png',
-          width: 130,
-          height: 130,
-      ),
-    );
-  }
 }
